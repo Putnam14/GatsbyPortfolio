@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import styles from './blog.module.css'
 import Layout from '../components/layout'
@@ -8,8 +7,8 @@ import ArticlePreview from '../components/article-preview'
 
 class BlogIndex extends React.Component {
   render() {
-    const blogTitle = get(this, 'props.data.site.siteMetadata.blogTitle')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
+    const { blogTitle } = this.props.data.site.siteMetadata
+    const posts = this.props.data.allContentfulBlogPost.edges
 
     return (
       <Layout location={this.props.location}>
