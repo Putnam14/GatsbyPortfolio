@@ -1,11 +1,8 @@
 {
-  "name": "gatsby-contentful-starter",
-  "description": "Starter Contentful Gatsby Blog",
-  "version": "1.0.0",
-  "author": "Stefan Judis <stefanjudis@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/contentful-userland/gatsby-contentful-starter/issues"
-  },
+  "name": "putnam14gatsbyportfolio",
+  "description": "Portfolio for Putnam14 powered by Gatsby and Contentful",
+  "version": "0.0.1",
+  "author": "Bridger Putnam <hey@bridgerputnam.me>",
   "dependencies": {
     "gatsby-image": "^2.0.13",
     "gatsby-plugin-react-helmet": "^3.0.0",
@@ -31,16 +28,16 @@
     "rimraf": "^2.6.2",
     "yargs-parser": "^11.0.0"
   },
-  "homepage": "https://github.com/contentful-userland/gatsby-contentful-starter#readme",
   "keywords": [
     "gatsby",
+    "contentful",
+    "portfolio",
     "contentful"
   ],
   "license": "MIT",
-  "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/contentful-userland/gatsby-contentful-starter.git"
+    "url": "git+https://github.com/Putnam14/GatsbyPortfolio.git"
   },
   "scripts": {
     "dev": "gatsby develop",
