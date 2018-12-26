@@ -1,13 +1,14 @@
 {
-  "name": "Contentful Gatsby Starter",
-  "description": "Gatsby starter for a Contentful project.",
+  "name": "putnam14gatsbyportfolio",
+  "description": "Portfolio for Putnam14 powered by Gatsby and Contentful",
   "keywords": [
     "contentful",
     "gatsby",
     "static",
-    "ssg"
+    "ssg",
+    "portfolio"
   ],
-  "repository": "https://github.com/contentful-userland/gatsby-contentful-starter",
+  "repository": "https://github.com/Putnam14/GatsbyPortfolio",
   "success_url": "/",
   "buildpacks": [
     {
