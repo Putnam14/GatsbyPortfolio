@@ -4,24 +4,28 @@ import NavStyles from './styles/NavStyles'
 
 export default () => (
   <NavStyles role="navigation">
-    <ul>
-      <li>
-        <Link to="/">Bridger Putnam</Link>
-      </li>
-    </ul>
-    <ul>
-      <li>
-        <Link to="/">About</Link>
-      </li>
-      <li>
-        <Link to="/blog/">Blog</Link>
-      </li>
-      <li>
-        <Link to="/projects/">Projects</Link>
-      </li>
-      <li>
-        <Link to="/hire-me/">Hire Me</Link>
-      </li>
-    </ul>
+    <li className="name">
+      <Link to="/">Bridger Putnam</Link>
+    </li>
+    <li>
+      <Link to="/" activeClassName="active">
+        About
+      </Link>
+    </li>
+    <li>
+      <Link to="/blog/" activeClassName="active">
+        Blog
+      </Link>
+    </li>
+    <li>
+      <Link to="/projects/" activeClassName="active">
+        Projects
+      </Link>
+    </li>
+    <li className="last">
+      <Link to="/hire-me/" activeClassName="active">
+        Hire Me
+      </Link>
+    </li>
   </NavStyles>
 )
