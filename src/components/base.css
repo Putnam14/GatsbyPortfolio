@@ -1,17 +1,38 @@
 @font-face {
-  font-family: "Avenir";
+  font-family: "Heebo";
   font-weight: 400;
-  font-style: normal;
-  src: url("/avenir-400.woff2") format("woff2");
+  src:
+    local('Heebo'),
+    local('Heebo Regular'),
+    url("/Heebo-Regular.tff") format("truetype");
   font-display: swap;
+}
+@font-face {
+  font-family: "Heebo";
+  font-weight: 200;
+  src: 
+    local('Heebo Light'),
+    url("/Heebo-Light.tff") format("truetype");
+}
+@font-face {
+  font-family: "Heebo";
+  font-weight: 600;
+  src: 
+    local('Heebo Bold'),
+    url("/Heebo-Bold.tff") format("truetype");
+}
+@font-face {
+  font-family: "Heebo";
+  font-weight: 900;
+  src: 
+    local('Heebo Black'),
+    url("/Heebo-Black.tff") format("truetype");
 }
 
 body {
-  font-family: "Avenir", Tahoma, Arial, Helvetica, sans-serif;
+  font-family: "Heebo", Tahoma, Arial, Helvetica, sans-serif;
   font-size: 1em;
   line-height: 1.65;
-  color: #373F49;
-  background: #eee;
   margin: 0;
 }
 
@@ -33,6 +54,7 @@ a {
 
 .wrapper {
   width: calc(100% - 10vmin);
+  max-width: 1000px;
   margin: 0 auto;
   padding: 5vmin 0;
 }
