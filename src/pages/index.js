@@ -3,7 +3,8 @@ import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
-import ArticlePreview from '../components/article-preview'
+import Projects from '../components/Projects'
+import Articles from '../components/Articles'
 
 class RootIndex extends React.Component {
   render() {
@@ -15,19 +16,8 @@ class RootIndex extends React.Component {
       <Layout location={this.props.location}>
         <Helmet title={siteTitle} />
         <Hero data={author.node} />
-        <div style={{ background: '#fff' }}>
-          <div className="wrapper">
-            <h2 className="section-headline">Recent articles</h2>
-            <ul className="article-list">
-              {posts.map(({ node }) => {
-                return (
-                  <li key={node.slug}>
-                    <ArticlePreview article={node} />
-                  </li>
-                )
-              })}
-            </ul>
-          </div>
+        <div className="wrapper" id="content">
+          <Articles posts={posts} />
         </div>
       </Layout>
     )
@@ -74,12 +64,7 @@ export const pageQuery = graphql`
           }
           title
           heroImage: image {
-            fluid(
-              maxWidth: 1180
-              maxHeight: 480
-              resizingBehavior: PAD
-              background: "rgb:000000"
-            ) {
+            fluid(background: "rgb:000000") {
               ...GatsbyContentfulFluid_tracedSVG
             }
           }
