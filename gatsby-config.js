@@ -35,5 +35,11 @@ module.exports = {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
     },
+    {
+      resolve: 'gatsby-plugin-nprogress',
+      options: {
+        color: '#A96F51',
+      },
+    },
   ],
 }
