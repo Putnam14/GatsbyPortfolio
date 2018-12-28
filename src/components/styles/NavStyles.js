@@ -7,20 +7,23 @@ const NavStyles = styled.ul`
   left: 0;
   display: flex;
   width: 100vw;
-  background-color: rgba(0, 0, 0, 0.2);
   margin: 0;
   padding: 0;
   list-style: none;
   font-size: 1.25em;
-  height: 100px;
+  font-weight: 600;
+  height: 4rem;
   align-items: center;
+  background-color: rgba(161, 162, 167, 0.8);
+  box-shadow: ${props => props.theme.bs};
+  -webkit-backdrop-filter: blur(2px);
   li {
     margin: 0 1em 0 1em;
   }
   .name {
+    font-weight: 900;
     font-size: 2em;
-    font-weight: bold;
-    color: white;
+    color: ${props => props.theme.base};
     margin-right: auto;
     margin-left: 3em;
   }
@@ -28,7 +31,7 @@ const NavStyles = styled.ul`
     padding-right: 3em;
   }
   .active {
-    border-bottom: 5px solid orange;
+    border-bottom: 5px solid ${props => props.theme.accent};
   }
   a {
     text-decoration: none;
