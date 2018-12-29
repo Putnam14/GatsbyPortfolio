@@ -8,16 +8,18 @@ import Articles from '../components/Articles'
 
 class RootIndex extends React.Component {
   render() {
-    const { siteTitle } = this.props.data.site.siteMetadata
     const posts = this.props.data.allContentfulBlogPost.edges
     const [author] = this.props.data.allContentfulPerson.edges
+    const siteSettings = this.props.data.contentfulSiteSettings
+    const { siteTitle } = siteSettings
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} data={siteSettings}>
         <Helmet title={siteTitle} />
-        <Hero data={author.node} />
-        <div className="wrapper" id="content">
-          <Articles posts={posts} />
+        <Hero data={siteSettings} />
+        <div className="wrapper" id="content" style={{ marginTop: '-4rem' }}>
+          <Projects />
+          <Articles posts={posts}>Recent blog posts</Articles>
         </div>
       </Layout>
     )
@@ -28,9 +30,19 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query HomeQuery {
-    site {
-      siteMetadata {
-        siteTitle
+    contentfulSiteSettings {
+      brandingTitle
+      siteTitle
+      heroImage {
+        fluid(background: "rgb:000000") {
+          ...GatsbyContentfulFluid_tracedSVG
+        }
+      }
+      ctaJSON {
+        cta
+        pre
+        button
+        strong
       }
     }
     allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
