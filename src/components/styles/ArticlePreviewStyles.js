@@ -9,7 +9,6 @@ const ArticlePreviewStyles = styled.li`
     position: relative;
     background: ${props => props.theme.cardBg};
     margin-top: -4em;
-    z-index: 1;
     width: 80%;
     border-radius: 0 16px 16px 16px;
     padding-top: 1em;
