@@ -24,7 +24,11 @@ export default ({ data }) => {
             {pre && <p className="pre">{pre}</p>}
             {strong && strong.map(val => <p className="strong">{val}</p>)}
             {cta && <p className="cta">{cta}</p>}
-            {button && <button>{button}</button>}
+            {button && (
+              <a href="/#contact">
+                <button>{button}</button>
+              </a>
+            )}
           </div>
           {/* 
         <h3>{data.name}</h3>

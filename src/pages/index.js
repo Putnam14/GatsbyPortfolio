@@ -21,7 +21,7 @@ class RootIndex extends React.Component {
         <div className="wrapper" id="content" style={{ marginTop: '-4rem' }}>
           <Projects projects={projects} />
           <Articles posts={posts}>Recent blog posts</Articles>
-          <Contact />
+          <Contact id="contact" />
         </div>
       </Layout>
     )

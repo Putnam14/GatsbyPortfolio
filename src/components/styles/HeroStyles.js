@@ -2,7 +2,9 @@ import styled from 'styled-components'
 
 const HeroStyles = styled.div`
   height: 100vh;
+  min-height: 590px;
   width: 100vw;
+  position: relative;
   .heroContainer {
     height: 100%;
     display: grid;
@@ -15,6 +17,8 @@ const HeroStyles = styled.div`
     }
     .bio-content {
       max-width: 50%;
+      margin-top: 4rem;
+      margin-bottom: 4rem;
     }
     p {
       margin: 0;
@@ -33,6 +37,7 @@ const HeroStyles = styled.div`
       margin: 1em 0 1em;
     }
     button {
+      cursor: pointer;
       border: 0;
       background-color: ${props => props.theme.base};
       color: ${props => props.theme.white};
