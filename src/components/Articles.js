@@ -3,11 +3,13 @@ import ArticlePreview from './article-preview'
 import HalfRule from './styles/HalfRule'
 import ArticlesStyles from './styles/ArticlesStyles'
 
-const Articles = ({ posts }) => (
+const Articles = ({ posts, children }) => (
   <div>
-    <HalfRule>
-      <span>Recent blog posts</span>
-    </HalfRule>
+    {children && (
+      <HalfRule>
+        <span>{children}</span>
+      </HalfRule>
+    )}
     <ArticlesStyles>
       {posts.map(({ node }) => {
         return <ArticlePreview article={node} />
