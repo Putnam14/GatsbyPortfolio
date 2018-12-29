@@ -19,6 +19,7 @@ const ArticlePreviewStyles = styled.li`
     color: ${props => props.theme.lightGray};
     padding: 0.25em;
     margin: 0;
+    margin-left: -0.5em;
     border-left: 4px solid ${props => props.theme.accent};
     text-transform: capitalize;
   }
@@ -47,6 +48,7 @@ const ArticlePreviewStyles = styled.li`
     }
     .tag {
       margin-left: auto;
+      margin-right: -0.5em;
       text-align: right;
       border-left: 0;
       border-right: 4px solid ${props => props.theme.accent};
