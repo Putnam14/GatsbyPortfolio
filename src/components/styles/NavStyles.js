@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const NavStyles = styled.ul`
-  z-index: 1;
+  z-index: 10;
   position: fixed;
   top: 0;
   left: 0;
