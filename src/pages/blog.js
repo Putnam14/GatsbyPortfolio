@@ -3,30 +3,25 @@ import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import styles from './blog.module.css'
 import Layout from '../components/layout'
-import ArticlePreview from '../components/article-preview'
+import Articles from '../components/Articles'
+import Featured from '../components/Featured'
+import BlogHeader from '../components/BlogHeader'
 
 class BlogIndex extends React.Component {
   render() {
     const { blogTitle } = this.props.data.site.siteMetadata
     const posts = this.props.data.allContentfulBlogPost.edges
+    const featuredPost = posts.filter(({ node }) => {
+      return node.tags.includes('general')
+    })[0]
 
     return (
       <Layout location={this.props.location}>
-        <div style={{ background: '#fff' }}>
-          <Helmet title={blogTitle} />
-          <div className={styles.hero}>Blog</div>
-          <div className="wrapper">
-            <h2 className="section-headline">Recent articles</h2>
-            <ul className="article-list">
-              {posts.map(({ node }) => {
-                return (
-                  <li key={node.slug}>
-                    <ArticlePreview article={node} />
-                  </li>
-                )
-              })}
-            </ul>
-          </div>
+        <Helmet title={blogTitle} />
+        <BlogHeader />
+        <Featured post={featuredPost} />
+        <div className="wrapper">
+          <Articles posts={posts}>Latest posts</Articles>
         </div>
       </Layout>
     )
