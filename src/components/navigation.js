@@ -2,10 +2,10 @@ import React from 'react'
 import { Link } from 'gatsby'
 import NavStyles from './styles/NavStyles'
 
-export default () => (
+export default ({ title }) => (
   <NavStyles role="navigation">
     <li className="name">
-      <Link to="/">Bridger Putnam</Link>
+      <Link to="/">{title}</Link>
     </li>
     <li>
       <Link to="/" activeClassName="active">
@@ -18,7 +18,7 @@ export default () => (
       </Link>
     </li>
     <li>
-      <Link to="/projects/" activeClassName="active">
+      <Link to="/#content" activeClassName="active">
         Projects
       </Link>
     </li>
