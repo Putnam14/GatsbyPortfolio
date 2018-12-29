@@ -11,7 +11,7 @@ const ProjectsStyles = styled.div`
     display: grid;
     width: 300px;
     margin: 1rem;
-    background: white;
+    background: ${props => props.theme.cardBg};
     border-radius: 16px;
     box-shadow: ${props => props.theme.bs};
   }
