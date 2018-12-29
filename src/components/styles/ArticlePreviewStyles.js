@@ -13,6 +13,7 @@ const ArticlePreviewStyles = styled.li`
     width: 80%;
     border-radius: 0 16px 16px 16px;
     padding-top: 1em;
+    box-shadow: ${props => props.theme.bs};
   }
   .tag {
     display: block;
