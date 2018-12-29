@@ -32,7 +32,7 @@ const ArticlePreviewStyles = styled.li`
   a {
     text-decoration: none;
   }
-  p {
+  div {
     padding: 0.5em;
     margin: 0;
   }

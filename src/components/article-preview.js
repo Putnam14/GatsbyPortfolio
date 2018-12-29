@@ -11,7 +11,7 @@ export default ({ article }) => (
       <h3>
         <Link to={`/blog/${article.slug}`}>{article.title}</Link>
       </h3>
-      <p
+      <div
         dangerouslySetInnerHTML={{
           __html: article.description.childMarkdownRemark.html,
         }}
