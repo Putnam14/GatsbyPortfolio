@@ -6,6 +6,7 @@ const HeroStyles = styled.div`
   width: 100vw;
   position: relative;
   .heroContainer {
+    margin-top: -4rem;
     height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;

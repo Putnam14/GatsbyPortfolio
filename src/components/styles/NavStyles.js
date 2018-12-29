@@ -2,9 +2,6 @@ import styled from 'styled-components'
 
 const NavStyles = styled.ul`
   z-index: 10;
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100vw;
   margin: 0;
   padding: 0;
