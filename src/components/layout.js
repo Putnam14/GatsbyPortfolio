@@ -1,20 +1,9 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, StaticQuery, graphql } from 'gatsby'
 import base from './base.css'
 import Helmet from 'react-helmet'
 import Navigation from './navigation'
 import styled, { ThemeProvider } from 'styled-components'
-
-const theme = {
-  base: '#327381',
-  accent: '#A96F51',
-  gray: '#3B4044',
-  lightGray: '#A1A2A7',
-  white: '#F2FDFF',
-  black: '#393939',
-  maxWidth: '1000px',
-  bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
-}
 
 const StyledPage = styled.div`
   background: ${props => props.theme.white};
@@ -39,13 +28,35 @@ class Template extends React.Component {
     }
 
     return (
-      <ThemeProvider theme={theme}>
-        <StyledPage>
-          <Meta />
-          <Navigation />
-          {children}
-        </StyledPage>
-      </ThemeProvider>
+      <StaticQuery
+        query={graphql`
+          query LayoutQuery {
+            contentfulSiteSettings {
+              brandingTitle
+              theme {
+                bs
+                base
+                gray
+                lightGray
+                black
+                white
+                accent
+                cardBg
+                maxWidth
+              }
+            }
+          }
+        `}
+        render={({ contentfulSiteSettings: { brandingTitle, theme } }) => (
+          <ThemeProvider theme={theme}>
+            <StyledPage>
+              <Meta />
+              <Navigation title={brandingTitle} />
+              {children}
+            </StyledPage>
+          </ThemeProvider>
+        )}
+      />
     )
   }
 }
