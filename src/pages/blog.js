@@ -9,17 +9,17 @@ import BlogHeader from '../components/BlogHeader'
 
 class BlogIndex extends React.Component {
   render() {
-    const { blogTitle } = this.props.data.site.siteMetadata
+    const { blogTitle } = this.props.data.contentfulSiteSettings
     const posts = this.props.data.allContentfulBlogPost.edges
     const featuredPost = posts.filter(({ node }) => {
-      return node.tags.includes('general')
+      return node.tags.includes('featured')
     })[0]
 
     return (
       <Layout location={this.props.location}>
         <Helmet title={blogTitle} />
         <BlogHeader />
-        <Featured post={featuredPost} />
+        {featuredPost && <Featured post={featuredPost} />}
         <div className="wrapper">
           <Articles posts={posts}>Latest posts</Articles>
         </div>
@@ -30,12 +30,11 @@ class BlogIndex extends React.Component {
 
 export default BlogIndex
 
+// TODO: Import blog title, author from Contentful. Add the blog title to the <title> and author info to the cards.
 export const pageQuery = graphql`
   query BlogIndexQuery {
-    site {
-      siteMetadata {
-        blogTitle
-      }
+    contentfulSiteSettings {
+      blogTitle
     }
     allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
       edges {
