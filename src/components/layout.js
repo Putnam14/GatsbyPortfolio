@@ -8,6 +8,9 @@ import styled, { ThemeProvider } from 'styled-components'
 const StyledPage = styled.div`
   background: ${props => props.theme.white};
   color: ${props => props.theme.gray};
+  a {
+    color: ${props => props.theme.base};
+  }
 `
 const Meta = () => (
   <Helmet>
