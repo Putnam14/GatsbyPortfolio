@@ -36,7 +36,7 @@ export const pageQuery = graphql`
       brandingTitle
       siteTitle
       heroImage {
-        fluid(background: "rgb:000000") {
+        fluid(quality: 100) {
           ...GatsbyContentfulFluid_tracedSVG
         }
       }
