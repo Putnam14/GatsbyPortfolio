@@ -1,38 +1,30 @@
 import React from 'react'
 import HalfRule from './styles/HalfRule'
+import ContactStyles from './styles/ContactStyles'
 
 const Contact = () => (
   <>
-    <HalfRule>Contact Me</HalfRule>
-    <form name="contact" method="POST" data-netlify="true">
-      <p>
+    <HalfRule>
+      <span>Contact Me</span>
+    </HalfRule>
+    <ContactStyles>
+      <form name="contact" method="POST" data-netlify="true">
         <label>
-          Your Name: <input type="text" name="name" />
+          Name <input type="text" name="name" placeholder="Your name..." />
         </label>
-      </p>
-      <p>
         <label>
-          Your Email: <input type="email" name="email" />
+          Email <input type="email" name="email" placeholder="Your email..." />
         </label>
-      </p>
-      <p>
         <label>
-          Your Role:{' '}
-          <select name="role[]" multiple>
-            <option value="leader">Leader</option>
-            <option value="follower">Follower</option>
-          </select>
+          Message{' '}
+          <textarea
+            name="message"
+            placeholder="Hi Bridger, I saw your portfolio and..."
+          />
         </label>
-      </p>
-      <p>
-        <label>
-          Message: <textarea name="message" />
-        </label>
-      </p>
-      <p>
         <button type="submit">Send</button>
-      </p>
-    </form>
+      </form>
+    </ContactStyles>
   </>
 )
 
