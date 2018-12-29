@@ -8,7 +8,7 @@ const Contact = () => (
       <span>Contact Me</span>
     </HalfRule>
     <ContactStyles>
-      <form name="contact" method="POST" data-netlify="true">
+      <form name="contact" netlify>
         <label>
           Name <input type="text" name="name" placeholder="Your name..." />
         </label>
