@@ -9,16 +9,16 @@ import Articles from '../components/Articles'
 class RootIndex extends React.Component {
   render() {
     const posts = this.props.data.allContentfulBlogPost.edges
+    const projects = this.props.data.allContentfulProject.edges
     const [author] = this.props.data.allContentfulPerson.edges
     const siteSettings = this.props.data.contentfulSiteSettings
     const { siteTitle } = siteSettings
-
     return (
       <Layout location={this.props.location} data={siteSettings}>
         <Helmet title={siteTitle} />
         <Hero data={siteSettings} />
         <div className="wrapper" id="content" style={{ marginTop: '-4rem' }}>
-          <Projects />
+          <Projects projects={projects} />
           <Articles posts={posts}>Recent blog posts</Articles>
         </div>
       </Layout>
@@ -60,6 +60,22 @@ export const pageQuery = graphql`
           description {
             childMarkdownRemark {
               html
+            }
+          }
+        }
+      }
+    }
+    allContentfulProject(sort: { fields: [createdAt], order: ASC }) {
+      edges {
+        node {
+          name
+          type
+          shortDescription
+          link
+          github
+          image {
+            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
+              ...GatsbyContentfulFluid_tracedSVG
             }
           }
         }
