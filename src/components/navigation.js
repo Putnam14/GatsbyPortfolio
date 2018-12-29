@@ -11,7 +11,7 @@ export default ({ title }) => (
       </li>
       <li>
         <Link to="/" activeClassName="active">
-          About
+          Home
         </Link>
       </li>
       <li>
@@ -19,12 +19,12 @@ export default ({ title }) => (
           Blog
         </Link>
       </li>
-      <li>
+      <li className="extras">
         <Link to="/#content" activeClassName="active">
           Projects
         </Link>
       </li>
-      <li className="last">
+      <li className="last extras">
         <Link to="/#contact" activeClassName="active">
           Hire Me
         </Link>
