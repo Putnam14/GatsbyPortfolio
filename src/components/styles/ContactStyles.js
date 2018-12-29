@@ -8,6 +8,20 @@ const ContactStyles = styled.div`
   label {
     margin-bottom: 1rem;
   }
+  @media (max-width: 739px) {
+    label {
+      width: 100%;
+    }
+  }
+  @media (min-width: 740px) {
+    textarea {
+      width: 350px;
+    }
+  }
+  textarea {
+    height: 150px;
+    resize: none;
+  }
   input,
   textarea {
     padding: 0.5rem;
@@ -15,11 +29,6 @@ const ContactStyles = styled.div`
     border-radius: 4px;
     border: 2px solid ${props => props.theme.gray};
     background-color: ${props => props.theme.cardBg};
-  }
-  textarea {
-    width: 350px;
-    height: 150px;
-    resize: none;
   }
   button {
     justify-self: center;
