@@ -7,7 +7,7 @@ const NavStyles = styled.ul`
   padding: 0;
   list-style: none;
   font-weight: 600;
-  background-color: rgba(161, 162, 167, 0.8);
+  background-color: rgba(251, 254, 255, 0.8);
   box-shadow: ${props => props.theme.bs};
   -webkit-backdrop-filter: blur(2px);
   .name {
