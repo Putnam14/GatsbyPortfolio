@@ -5,6 +5,7 @@ import Hero from '../components/hero'
 import Layout from '../components/layout'
 import Projects from '../components/Projects'
 import Articles from '../components/Articles'
+import AboutMe from '../components/AboutMe'
 
 class RootIndex extends React.Component {
   render() {
@@ -12,12 +13,13 @@ class RootIndex extends React.Component {
     const projects = this.props.data.allContentfulProject.edges
     const [author] = this.props.data.allContentfulPerson.edges
     const siteSettings = this.props.data.contentfulSiteSettings
-    const { siteTitle } = siteSettings
+    const { siteTitle, aboutMeText } = siteSettings
     return (
       <Layout location={this.props.location} data={siteSettings}>
         <Helmet title={siteTitle} />
         <Hero data={siteSettings} />
-        <div className="wrapper" id="content" style={{ marginTop: '-4rem' }}>
+        <div className="wrapper" id="content" style={{ marginTop: '0' }}>
+          <AboutMe text={aboutMeText} />
           <Projects projects={projects} />
           <Articles posts={posts}>Recent blog posts</Articles>
         </div>
@@ -43,6 +45,11 @@ export const pageQuery = graphql`
         pre
         button
         strong
+      }
+      aboutMeText {
+        childMarkdownRemark {
+          html
+        }
       }
     }
     allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
