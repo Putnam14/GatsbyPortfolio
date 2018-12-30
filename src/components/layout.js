@@ -4,6 +4,7 @@ import base from './base.css'
 import Helmet from 'react-helmet'
 import Navigation from './navigation'
 import styled, { ThemeProvider } from 'styled-components'
+import Footer from './Footer'
 
 const StyledPage = styled.div`
   background: ${props => props.theme.white};
@@ -71,6 +72,7 @@ class Template extends React.Component {
               <Meta />
               <Navigation title={brandingTitle} />
               {children}
+              <Footer />
             </StyledPage>
           </ThemeProvider>
         )}
