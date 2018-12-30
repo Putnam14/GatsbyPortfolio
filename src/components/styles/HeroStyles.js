@@ -23,6 +23,22 @@ const HeroStyles = styled.div`
       display: grid;
       width: 75%;
     }
+    .fadeDown {
+      animation: fadeDown 0.5s both linear 0.25s;
+      @keyframes fadeDown {
+        0% {
+          opacity: 0;
+          transform: translateY(-25px);
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
     a {
       text-align: center;
     }
@@ -49,6 +65,19 @@ const HeroStyles = styled.div`
       width: 50%;
       min-width: 300px;
     }
+    .fadeDown {
+      animation: fadeDown 0.5s both linear 0.25s;
+      @keyframes fadeDown {
+        0% {
+          opacity: 0;
+          transform: translateY(-25px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
     .bottomLinks {
       position: absolute;
       bottom: 0;
@@ -60,6 +89,27 @@ const HeroStyles = styled.div`
         padding-right: 3rem;
         opacity: 1;
         color: ${props => props.theme.base};
+      }
+    }
+    .bounce {
+      position: relative;
+      animation: bounce 1s linear 1.5s infinite;
+      @keyframes bounce {
+        0% {
+          top: 0;
+        }
+        60% {
+          top: 0;
+        }
+        70% {
+          top: 0.2em;
+        }
+        80% {
+          top: 0.3em;
+        }
+        100% {
+          top: 0;
+        }
       }
     }
   }
@@ -94,40 +144,6 @@ const HeroStyles = styled.div`
     box-shadow: ${props => props.theme.bs};
     height: 3rem;
     width: 50%;
-  }
-  .fadeDown {
-    animation: fadeDown 0.5s both linear 0.25s;
-    @keyframes fadeDown {
-      0% {
-        opacity: 0;
-        transform: translateY(-25px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  }
-  .bounce {
-    position: relative;
-    animation: bounce 1s linear 1.5s infinite;
-    @keyframes bounce {
-      0% {
-        top: 0;
-      }
-      60% {
-        top: 0;
-      }
-      70% {
-        top: 0.2em;
-      }
-      80% {
-        top: 0.3em;
-      }
-      100% {
-        top: 0;
-      }
-    }
   }
 `
 
