@@ -24,7 +24,7 @@ const HeroStyles = styled.div`
       width: 75%;
     }
     .fadeDown {
-      animation: fadeDown 0.5s both linear 0.25s;
+      animation: fadeDown 0.4s both linear;
       @keyframes fadeDown {
         0% {
           opacity: 0;
@@ -66,7 +66,7 @@ const HeroStyles = styled.div`
       min-width: 300px;
     }
     .fadeDown {
-      animation: fadeDown 0.5s both linear 0.25s;
+      animation: fadeDown 0.75s both linear;
       @keyframes fadeDown {
         0% {
           opacity: 0;
