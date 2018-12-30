@@ -1,11 +1,11 @@
 @font-face {
   font-family: "Heebo";
   font-weight: 400;
+  font-display: swap;
   src:
     local('Heebo'),
     local('Heebo Regular'),
     url('../fonts/Heebo-Regular.ttf') format("truetype");
-  font-display: swap;
 }
 @font-face {
   font-family: "Heebo";
