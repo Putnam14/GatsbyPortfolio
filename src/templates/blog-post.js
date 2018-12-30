@@ -8,6 +8,9 @@ import styled from 'styled-components'
 import heroStyles from '../components/hero.module.css'
 
 const PostStyles = styled.div`
+  .page-container {
+    background-color: ${props => props.theme.cardBg};
+  }
   animation: fadeDown 0.5s both linear 0.25s;
   @keyframes fadeDown {
     0% {
@@ -105,61 +108,63 @@ class BlogPostTemplate extends React.Component {
           </div>
         )}
         <PostStyles>
-          <div className="wrapper">
-            <h1>{post.title}</h1>
-            <div className="post-info">
-              <div className="author-info">
-                <Img alt={author.name} fluid={author.image.fluid} />
-                <p className="name">{author.name}</p>
-                {author.github && (
-                  <a href={'https://www.github.com/' + author.github}>
-                    <i className="fab fa-github" />
-                    <span className="sr-only">{author.name}'s Github</span>
-                  </a>
-                )}
-                {author.twitter && (
-                  <a href={'https://www.twitter.com/' + author.twitter}>
-                    <i className="fab fa-twitter" />
-                    <span className="sr-only">{author.name}'s Twitter</span>
-                  </a>
-                )}
-              </div>
-              <p>{post.publishDate}</p>
-            </div>
-            <div className="section-headline" />
-            <div
-              dangerouslySetInnerHTML={{
-                __html: post.body.childMarkdownRemark.html,
-              }}
-            />
-            <div className="section-headline" />
-            <div className="post-script">
-              <div className="author-info">
-                <Img alt={author.name} fluid={author.image.fluid} />
-                <div className="bio">
-                  <div>
-                    <p className="name">{author.name}</p>
-                    <p className="title">{author.title}</p>
-                    <p>{post.publishDate}</p>
-                  </div>
-                </div>
-                <div className="social">
+          <div className="page-container">
+            <div className="wrapper">
+              <h1>{post.title}</h1>
+              <div className="post-info">
+                <div className="author-info">
+                  <Img alt={author.name} fluid={author.image.fluid} />
+                  <p className="name">{author.name}</p>
                   {author.github && (
                     <a href={'https://www.github.com/' + author.github}>
-                      <p>
-                        <i className="fab fa-github" />
-                        {author.github}
-                      </p>
+                      <i className="fab fa-github" />
+                      <span className="sr-only">{author.name}'s Github</span>
                     </a>
                   )}
                   {author.twitter && (
                     <a href={'https://www.twitter.com/' + author.twitter}>
-                      <p>
-                        <i className="fab fa-twitter" />
-                        {author.twitter}
-                      </p>
+                      <i className="fab fa-twitter" />
+                      <span className="sr-only">{author.name}'s Twitter</span>
                     </a>
                   )}
+                </div>
+                <p>{post.publishDate}</p>
+              </div>
+              <div className="section-headline" />
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: post.body.childMarkdownRemark.html,
+                }}
+              />
+              <div className="section-headline" />
+              <div className="post-script">
+                <div className="author-info">
+                  <Img alt={author.name} fluid={author.image.fluid} />
+                  <div className="bio">
+                    <div>
+                      <p className="name">{author.name}</p>
+                      <p className="title">{author.title}</p>
+                      <p>{post.publishDate}</p>
+                    </div>
+                  </div>
+                  <div className="social">
+                    {author.github && (
+                      <a href={'https://www.github.com/' + author.github}>
+                        <p>
+                          <i className="fab fa-github" />
+                          {author.github}
+                        </p>
+                      </a>
+                    )}
+                    {author.twitter && (
+                      <a href={'https://www.twitter.com/' + author.twitter}>
+                        <p>
+                          <i className="fab fa-twitter" />
+                          {author.twitter}
+                        </p>
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
