@@ -11,7 +11,7 @@ const ArticlePreviewStyles = styled.li`
     margin-top: -4em;
     width: 80%;
     border-radius: 0 16px 16px 16px;
-    padding-top: 1em;
+    padding: 1em 0;
     box-shadow: ${props => props.theme.bs};
   }
   .tag {
@@ -19,7 +19,6 @@ const ArticlePreviewStyles = styled.li`
     color: ${props => props.theme.lightGray};
     padding: 0.25em;
     margin: 0;
-    margin-left: -0.5em;
     border-left: 4px solid ${props => props.theme.accent};
     text-transform: capitalize;
   }
@@ -47,8 +46,6 @@ const ArticlePreviewStyles = styled.li`
       margin-left: auto;
     }
     .tag {
-      margin-left: auto;
-      margin-right: -0.5em;
       text-align: right;
       border-left: 0;
       border-right: 4px solid ${props => props.theme.accent};
