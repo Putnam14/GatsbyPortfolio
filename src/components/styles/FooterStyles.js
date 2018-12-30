@@ -38,6 +38,9 @@ const FooterStyles = styled.footer`
     padding-top: 1em;
     max-width: 150px;
   }
+  .nav-links {
+    color: ${props => props.theme.accent};
+  }
 `
 
 export default FooterStyles

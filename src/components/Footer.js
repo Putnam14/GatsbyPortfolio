@@ -3,6 +3,7 @@ import FooterStyles from './styles/FooterStyles'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link } from 'gatsby'
 import contentful from '../../static/contentful.svg'
 import gatsby from '../../static/gatsby.svg'
 import netlify from '../../static/netlify.svg'
@@ -22,8 +23,15 @@ const Footer = () => {
             <span className="sr-only">Twitter</span>
           </a>
         </div>
+        <div className="nav-links">
+          <Link to="/">Home</Link>
+          {' | '}
+          <Link to="/blog/">Blog</Link>
+          {' | '}
+          <Link to="/contact/">Contact</Link>
+        </div>
         <p>
-          Made with 💛 in Boise by{' '}
+          Made with ❤️ in Boise by{' '}
           <a href="https://bridgerputnam.me/">Bridger Putnam</a>
         </p>
         <div className="attribution">
