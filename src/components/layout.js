@@ -5,8 +5,12 @@ import Helmet from 'react-helmet'
 import Navigation from './navigation'
 import styled, { ThemeProvider } from 'styled-components'
 import Footer from './Footer'
+import { isAbsolute } from 'upath'
 
 const StyledPage = styled.div`
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
   background: ${props => props.theme.white};
   color: ${props => props.theme.gray};
   a {
@@ -68,10 +72,12 @@ class Template extends React.Component {
         `}
         render={({ contentfulSiteSettings: { brandingTitle, theme } }) => (
           <ThemeProvider theme={theme}>
-            <StyledPage>
-              <Meta />
-              <Navigation title={brandingTitle} />
-              {children}
+            <StyledPage id="hi">
+              <div className="content">
+                <Meta />
+                <Navigation title={brandingTitle} />
+                {children}
+              </div>
               <Footer />
             </StyledPage>
           </ThemeProvider>
