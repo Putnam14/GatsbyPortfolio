@@ -38,10 +38,14 @@ export default ({ data }) => {
       </div>
       <div className="bottomLinks">
         <a href="https://github.com/Putnam14">
-          <i className="fab fa-github" />
+          <i className="fab fa-github">
+            <span className="sr-only">Github</span>
+          </i>
         </a>
         <a href="https://twitter.com/BridgerPutnam">
-          <i className="fab fa-twitter" />
+          <i className="fab fa-twitter">
+            <span className="sr-only">Twitter</span>
+          </i>
         </a>
         <Link to="/#content" className="downArrow">
           <i className="downArrow fas fa-angle-double-down" />

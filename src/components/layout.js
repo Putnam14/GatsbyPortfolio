@@ -11,12 +11,27 @@ const StyledPage = styled.div`
   a {
     color: ${props => props.theme.base};
   }
+  .sr-only {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
 `
 const Meta = () => (
   <Helmet>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charSet="utf-8" />
     <title>Bridger Putnam</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="My name is Bridger Putnam and I am a full stack developer located in Boise, ID. My focus is on creating stunning websites that users find value in. I am available for hire, contact me!"
+    />
+    <meta charSet="utf-8" />
+    <html lang="en" />
   </Helmet>
 )
 
