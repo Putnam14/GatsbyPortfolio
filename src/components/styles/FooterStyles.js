@@ -17,7 +17,6 @@ const FooterStyles = styled.footer`
     margin: 0;
   }
   a {
-    color: ${props => props.theme.base};
     text-decoration: none;
   }
   svg {
@@ -38,8 +37,12 @@ const FooterStyles = styled.footer`
     padding-top: 1em;
     max-width: 150px;
   }
-  .nav-links {
-    color: ${props => props.theme.accent};
+  .nav-links,
+  .social,
+  p {
+    a {
+      color: ${props => props.theme.linkOnDark};
+    }
   }
 `
 

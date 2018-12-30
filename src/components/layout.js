@@ -66,6 +66,7 @@ class Template extends React.Component {
                 accent
                 cardBg
                 maxWidth
+                linkOnDark
               }
             }
           }

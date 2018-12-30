@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <FooterStyles>
       <div className="container">
-        <div>
+        <div className="social">
           <a href="https://github.com/Putnam14">
             <FontAwesomeIcon icon={['fab', 'github']} />
             <span className="sr-only">Github</span>
@@ -36,21 +36,29 @@ const Footer = () => {
         </p>
         <div className="attribution">
           <span>
-            <a href="https://www.gatsbyjs.org/" rel="nofollow" target="_blank">
+            <a
+              href="https://www.gatsbyjs.org/"
+              rel="nofollow noreferrer"
+              target="_blank"
+            >
               <img src={gatsby} alt="Powered by Gatsby" />
             </a>
           </span>
           <span>
             <a
               href="https://www.contentful.com/"
-              rel="nofollow"
+              rel="nofollow noreferrer"
               target="_blank"
             >
               <img src={contentful} alt="Powered by Contentful" />
             </a>
           </span>
           <span>
-            <a href="https://www.netlify.com/" rel="nofollow" target="_blank">
+            <a
+              href="https://www.netlify.com/"
+              rel="nofollow noreferrer"
+              target="_blank"
+            >
               <img src={netlify} alt="Hosted on Netlify" />
             </a>
           </span>
