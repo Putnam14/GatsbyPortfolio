@@ -1,9 +1,15 @@
 import styled from 'styled-components'
 
 const ContactStyles = styled.div`
+  display: grid;
+  justify-content: center;
+  a {
+    text-decoration: none;
+  }
   form {
     display: grid;
     justify-content: center;
+    margin-bottom: 2em;
   }
   label {
     margin-bottom: 1rem;

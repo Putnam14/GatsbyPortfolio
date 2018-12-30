@@ -5,7 +5,6 @@ import Hero from '../components/hero'
 import Layout from '../components/layout'
 import Projects from '../components/Projects'
 import Articles from '../components/Articles'
-import Contact from '../components/Contact'
 
 class RootIndex extends React.Component {
   render() {
@@ -21,7 +20,6 @@ class RootIndex extends React.Component {
         <div className="wrapper" id="content" style={{ marginTop: '-4rem' }}>
           <Projects projects={projects} />
           <Articles posts={posts}>Recent blog posts</Articles>
-          <Contact id="contact" />
         </div>
       </Layout>
     )

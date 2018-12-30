@@ -25,7 +25,7 @@ export default ({ title }) => (
         </Link>
       </li>
       <li className="last extras">
-        <Link to="/#contact" activeClassName="active">
+        <Link to="/contact/" activeClassName="active">
           Hire Me
         </Link>
       </li>
