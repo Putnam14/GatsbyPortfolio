@@ -20,7 +20,7 @@ export default ({ data }) => {
       <div className="heroContainer">
         <Img alt={brandingTitle} fluid={heroImage.fluid} />
         <div className="bio">
-          <div className="bio-content">
+          <div className="bio-content fadeDown">
             {pre && <p className="pre">{pre}</p>}
             {strong && strong.map(val => <p className="strong">{val}</p>)}
             {cta && <p className="cta">{cta}</p>}
@@ -30,10 +30,6 @@ export default ({ data }) => {
               </a>
             )}
           </div>
-          {/* 
-        <h3>{data.name}</h3>
-        <p>{data.title}</p>
-        <p>{data.shortBio.shortBio}</p> */}
         </div>
       </div>
       <div className="bottomLinks">
@@ -47,7 +43,7 @@ export default ({ data }) => {
             <span className="sr-only">Twitter</span>
           </i>
         </a>
-        <Link to="/#content" className="downArrow">
+        <Link to="/#content" className="downArrow bounce">
           <i className="downArrow fas fa-angle-double-down" />
         </Link>
       </div>
