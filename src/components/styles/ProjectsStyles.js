@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 const ProjectsStyles = styled.div`
-  margin-top: 4rem;
   .projects {
     display: flex;
     flex-wrap: wrap;
