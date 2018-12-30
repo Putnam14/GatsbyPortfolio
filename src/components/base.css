@@ -4,29 +4,32 @@
   src:
     local('Heebo'),
     local('Heebo Regular'),
-    url("/Heebo-Regular.tff") format("truetype");
+    url('../fonts/Heebo-Regular.ttf') format("truetype");
   font-display: swap;
 }
 @font-face {
   font-family: "Heebo";
   font-weight: 200;
+  font-display: swap;
   src: 
     local('Heebo Light'),
-    url("/Heebo-Light.tff") format("truetype");
+    url('../fonts/Heebo-Light.ttf') format("truetype");
 }
 @font-face {
   font-family: "Heebo";
   font-weight: 600;
+  font-display: swap;
   src: 
     local('Heebo Bold'),
-    url("/Heebo-Bold.tff") format("truetype");
+    url('../fonts/Heebo-Bold.ttf') format("truetype");
 }
 @font-face {
   font-family: "Heebo";
   font-weight: 900;
+  font-display: swap;
   src: 
     local('Heebo Black'),
-    url("/Heebo-Black.tff") format("truetype");
+    url('../fonts/Heebo-Black.ttf') format("truetype");
 }
 
 body {
