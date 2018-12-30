@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import get from 'lodash/get'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import styled from 'styled-components'
@@ -9,6 +8,17 @@ import styled from 'styled-components'
 import heroStyles from '../components/hero.module.css'
 
 const PostStyles = styled.div`
+  animation: fadeDown 0.5s both linear 0.25s;
+  @keyframes fadeDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-25px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
   .post-script {
     padding: 0 1em;
   }
@@ -45,31 +55,31 @@ const PostStyles = styled.div`
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = get(this.props, 'data.contentfulBlogPost')
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
+    const post = this.props.data.contentfulBlogPost
+    const { blogTitle } = this.props.data.contentfulSiteSettings
     const { author } = post
 
     return (
       <Layout location={this.props.location}>
-        <PostStyles>
-          <Helmet>
-            <title>{`${post.title} | ${siteTitle}`}</title>
-            <link
-              rel="stylesheet"
-              href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-              integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-              crossorigin="anonymous"
+        <Helmet>
+          <title>{`${post.title} | ${blogTitle}`}</title>
+          <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+            integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+            crossorigin="anonymous"
+          />
+        </Helmet>
+        {post.heroImage.fluid && (
+          <div className={heroStyles.hero}>
+            <Img
+              className={heroStyles.heroImage}
+              alt={post.title}
+              fluid={post.heroImage.fluid}
             />
-          </Helmet>
-          {post.heroImage.fluid && (
-            <div className={heroStyles.hero}>
-              <Img
-                className={heroStyles.heroImage}
-                alt={post.title}
-                fluid={post.heroImage.fluid}
-              />
-            </div>
-          )}
+          </div>
+        )}
+        <PostStyles>
           <div className="wrapper">
             <h1 className="section-headline">{post.title}</h1>
             <div
@@ -118,6 +128,9 @@ export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
+    contentfulSiteSettings {
+      blogTitle
+    }
     contentfulBlogPost(slug: { eq: $slug }) {
       title
       publishDate(formatString: "MMMM Do, YYYY")
