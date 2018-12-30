@@ -3,7 +3,7 @@ import HalfRule from './styles/HalfRule'
 import ContactStyles from './styles/ContactStyles'
 
 const Contact = () => (
-  <>
+  <div className="wrapper">
     <HalfRule>
       <span>Contact Me</span>
     </HalfRule>
@@ -31,7 +31,7 @@ const Contact = () => (
         <button type="submit">Send</button>
       </form>
     </ContactStyles>
-  </>
+  </div>
 )
 
 export default Contact
