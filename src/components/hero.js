@@ -3,20 +3,17 @@ import Img from 'gatsby-image'
 import HeroStyles from './styles/HeroStyles'
 import Helmet from 'react-helmet'
 import { Link } from 'gatsby'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default ({ data }) => {
   const { brandingTitle, heroImage, ctaJSON } = data
   const { pre, strong, cta, button } = ctaJSON
+  library.add(faGithub, faTwitter, faAngleDoubleDown)
   return (
     <HeroStyles>
-      <Helmet>
-        <link
-          rel="stylesheet"
-          href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-          crossorigin="anonymous"
-        />
-      </Helmet>
       <div className="heroContainer">
         <Img alt={brandingTitle} fluid={heroImage.fluid} />
         <div className="bio">
@@ -34,17 +31,17 @@ export default ({ data }) => {
       </div>
       <div className="bottomLinks">
         <a href="https://github.com/Putnam14">
-          <i className="fab fa-github">
+          <FontAwesomeIcon icon={['fab', 'github']}>
             <span className="sr-only">Github</span>
-          </i>
+          </FontAwesomeIcon>
         </a>
         <a href="https://twitter.com/BridgerPutnam">
-          <i className="fab fa-twitter">
+          <FontAwesomeIcon icon={['fab', 'twitter']}>
             <span className="sr-only">Twitter</span>
-          </i>
+          </FontAwesomeIcon>
         </a>
         <Link to="/#content" className="downArrow bounce">
-          <i className="downArrow fas fa-angle-double-down" />
+          <FontAwesomeIcon className="downArrow" icon="angle-double-down" />
         </Link>
       </div>
     </HeroStyles>

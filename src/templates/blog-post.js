@@ -4,6 +4,9 @@ import Helmet from 'react-helmet'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import styled from 'styled-components'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import heroStyles from '../components/hero.module.css'
 
@@ -59,6 +62,9 @@ const PostStyles = styled.div`
       a {
         text-decoration: none;
       }
+      svg {
+        padding-right: 0.5em;
+      }
     }
   }
   .bio {
@@ -75,7 +81,7 @@ const PostStyles = styled.div`
       padding: 0;
       margin: 0;
     }
-    i {
+    svg {
       font-size: 1.25rem;
       color: ${props => props.theme.base};
     }
@@ -87,17 +93,12 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.contentfulBlogPost
     const { blogTitle } = this.props.data.contentfulSiteSettings
     const { author } = post
+    library.add(faGithub, faTwitter)
 
     return (
       <Layout location={this.props.location}>
         <Helmet>
           <title>{`${post.title} | ${blogTitle}`}</title>
-          <link
-            rel="stylesheet"
-            href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-            integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-            crossorigin="anonymous"
-          />
         </Helmet>
         <PageContainer>
           {post.heroImage.fluid && (
@@ -118,13 +119,13 @@ class BlogPostTemplate extends React.Component {
                   <p className="name">{author.name}</p>
                   {author.github && (
                     <a href={'https://www.github.com/' + author.github}>
-                      <i className="fab fa-github" />
+                      <FontAwesomeIcon icon={['fab', 'github']} />
                       <span className="sr-only">{author.name}'s Github</span>
                     </a>
                   )}
                   {author.twitter && (
                     <a href={'https://www.twitter.com/' + author.twitter}>
-                      <i className="fab fa-twitter" />
+                      <FontAwesomeIcon icon={['fab', 'twitter']} />
                       <span className="sr-only">{author.name}'s Twitter</span>
                     </a>
                   )}
@@ -152,7 +153,7 @@ class BlogPostTemplate extends React.Component {
                     {author.github && (
                       <a href={'https://www.github.com/' + author.github}>
                         <p>
-                          <i className="fab fa-github" />
+                          <FontAwesomeIcon icon={['fab', 'github']} />
                           {author.github}
                         </p>
                       </a>
@@ -160,7 +161,7 @@ class BlogPostTemplate extends React.Component {
                     {author.twitter && (
                       <a href={'https://www.twitter.com/' + author.twitter}>
                         <p>
-                          <i className="fab fa-twitter" />
+                          <FontAwesomeIcon icon={['fab', 'twitter']} />
                           {author.twitter}
                         </p>
                       </a>

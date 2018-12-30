@@ -9,7 +9,7 @@ const HeroStyles = styled.div`
   .bottomLinks {
     display: flex;
     width: 100%;
-    i {
+    svg {
       color: ${props => props.theme.lightGray};
       opacity: 0.8;
       font-size: 3em;
@@ -81,7 +81,7 @@ const HeroStyles = styled.div`
     .bottomLinks {
       position: absolute;
       bottom: 0;
-      i {
+      svg {
         padding: 0 0 1rem 3rem;
       }
       .downArrow {
