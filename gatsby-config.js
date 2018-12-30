@@ -42,5 +42,20 @@ module.exports = {
         color: '#A96F51',
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Bridger Putnam Portfolio`,
+        short_name: `Bridger`,
+        start_url: `/`,
+        background_color: `#F2FDFF`,
+        theme_color: `#327381`,
+        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
+        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+        display: `standalone`,
+        icon: `./static/TreesLogo.svg`, // This path is relative to the root of the site.
+      },
+    },
+    `gatsby-plugin-offline`,
   ],
 }
