@@ -19,16 +19,42 @@ const PostStyles = styled.div`
       transform: translateY(0);
     }
   }
-  .post-script {
-    padding: 0 1em;
-  }
   .author-info {
     display: flex;
+    align-items: center;
+    .gatsby-image-wrapper {
+      border-radius: 100%;
+      margin-right: 1rem;
+    }
+    a {
+      padding-left: 1em;
+    }
+  }
+  .post-info {
+    display: flex;
+    .author-info {
+      padding-right: 1em;
+    }
+    .gatsby-image-wrapper {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  .post-script {
+    padding: 0 1em;
     .gatsby-image-wrapper {
       min-width: 75px;
       height: 75px;
-      border-radius: 100%;
-      margin-right: 1rem;
+    }
+    .social {
+      display: grid;
+      p {
+        padding: 0;
+        margin: 0;
+      }
+      a {
+        text-decoration: none;
+      }
     }
   }
   .bio {
@@ -48,7 +74,6 @@ const PostStyles = styled.div`
     i {
       font-size: 1.25rem;
       color: ${props => props.theme.base};
-      padding-right: 1rem;
     }
   }
 `
@@ -81,42 +106,63 @@ class BlogPostTemplate extends React.Component {
         )}
         <PostStyles>
           <div className="wrapper">
-            <h1 className="section-headline">{post.title}</h1>
+            <h1>{post.title}</h1>
+            <div className="post-info">
+              <div className="author-info">
+                <Img alt={author.name} fluid={author.image.fluid} />
+                <p className="name">{author.name}</p>
+                {author.github && (
+                  <a href={'https://www.github.com/' + author.github}>
+                    <i className="fab fa-github" />
+                    <span className="sr-only">{author.name}'s Github</span>
+                  </a>
+                )}
+                {author.twitter && (
+                  <a href={'https://www.twitter.com/' + author.twitter}>
+                    <i className="fab fa-twitter" />
+                    <span className="sr-only">{author.name}'s Twitter</span>
+                  </a>
+                )}
+              </div>
+              <p>{post.publishDate}</p>
+            </div>
+            <div className="section-headline" />
             <div
               dangerouslySetInnerHTML={{
                 __html: post.body.childMarkdownRemark.html,
               }}
             />
-          </div>
-          <div className="section-headline" />
-          <div className="post-script">
-            <p>{post.publishDate}</p>
-            <div className="author-info">
-              <Img alt={author.name} fluid={author.image.fluid} />
-              <div className="bio">
-                <div>
-                  <p className="name">{author.name}</p>
-                  <p className="title">{author.title}</p>
+            <div className="section-headline" />
+            <div className="post-script">
+              <div className="author-info">
+                <Img alt={author.name} fluid={author.image.fluid} />
+                <div className="bio">
+                  <div>
+                    <p className="name">{author.name}</p>
+                    <p className="title">{author.title}</p>
+                    <p>{post.publishDate}</p>
+                  </div>
                 </div>
-                <div>
+                <div className="social">
                   {author.github && (
                     <a href={'https://www.github.com/' + author.github}>
-                      <i className="fab fa-github" />
+                      <p>
+                        <i className="fab fa-github" />
+                        {author.github}
+                      </p>
                     </a>
                   )}
                   {author.twitter && (
                     <a href={'https://www.twitter.com/' + author.twitter}>
-                      <i className="fab fa-twitter" />
+                      <p>
+                        <i className="fab fa-twitter" />
+                        {author.twitter}
+                      </p>
                     </a>
                   )}
                 </div>
               </div>
             </div>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: author.shortBio.childMarkdownRemark.html,
-              }}
-            />
           </div>
         </PostStyles>
       </Layout>
@@ -147,11 +193,6 @@ export const pageQuery = graphql`
       author {
         name
         title
-        shortBio {
-          childMarkdownRemark {
-            html
-          }
-        }
         twitter
         github
         image {
