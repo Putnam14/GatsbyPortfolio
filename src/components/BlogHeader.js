@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Header = styled.div`
-  padding: 6rem 6rem 1rem 6rem;
   background-color: white;
   display: flex;
   @media (max-width: 739px) {
@@ -13,6 +12,7 @@ const Header = styled.div`
     justify-content: center;
   }
   @media (min-width: 740px) {
+    padding: 2rem 6rem 1rem 6rem;
     div {
       margin-left: auto;
     }
@@ -28,11 +28,11 @@ const Header = styled.div`
 
 const BlogHeader = () => (
   <Header>
-    <span>Life.</span>
     <span>Programming.</span>
-    <span>Finance.</span>
     <span>Cycling.</span>
-    <div>
+    <span>Adventures.</span>
+    <span>Life.</span>
+    <div style={{ display: 'none' }}>
       <small>Doesn't work yet --></small>
       <input type="search" placeholder="Search!" />
     </div>
