@@ -37,7 +37,7 @@ export const pageQuery = graphql`
       siteTitle
       heroImage {
         fluid(quality: 100) {
-          ...GatsbyContentfulFluid_tracedSVG
+          ...GatsbyContentfulFluid_withWebp
         }
       }
       ctaJSON {
