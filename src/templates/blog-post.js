@@ -7,10 +7,11 @@ import styled from 'styled-components'
 
 import heroStyles from '../components/hero.module.css'
 
+const PageContainer = styled.div`
+  background-color: ${props => props.theme.cardBg};
+`
+
 const PostStyles = styled.div`
-  .page-container {
-    background-color: ${props => props.theme.cardBg};
-  }
   animation: fadeDown 0.5s both linear 0.25s;
   @keyframes fadeDown {
     0% {
@@ -98,17 +99,17 @@ class BlogPostTemplate extends React.Component {
             crossorigin="anonymous"
           />
         </Helmet>
-        {post.heroImage.fluid && (
-          <div className={heroStyles.hero}>
-            <Img
-              className={heroStyles.heroImage}
-              alt={post.title}
-              fluid={post.heroImage.fluid}
-            />
-          </div>
-        )}
-        <PostStyles>
-          <div className="page-container">
+        <PageContainer>
+          {post.heroImage.fluid && (
+            <div className={heroStyles.hero}>
+              <Img
+                className={heroStyles.heroImage}
+                alt={post.title}
+                fluid={post.heroImage.fluid}
+              />
+            </div>
+          )}
+          <PostStyles>
             <div className="wrapper">
               <h1>{post.title}</h1>
               <div className="post-info">
@@ -168,8 +169,8 @@ class BlogPostTemplate extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
-        </PostStyles>
+          </PostStyles>
+        </PageContainer>
       </Layout>
     )
   }
