@@ -2,11 +2,11 @@ import React from 'react'
 import ArticlePreview from './article-preview'
 import FeaturedStyles from './styles/FeaturedStyles'
 
-const Featured = ({ post: { node } }) => {
+const Featured = ({ post }) => {
   return (
     <FeaturedStyles>
       <ul>
-        <ArticlePreview article={node} />
+        <ArticlePreview article={post} />
       </ul>
     </FeaturedStyles>
   )
