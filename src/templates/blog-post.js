@@ -15,6 +15,8 @@ const PageContainer = styled.div`
 `
 
 const PostStyles = styled.div`
+  max-width: 50em;
+  margin: 0 auto;
   animation: fadeDown 0.5s both linear 0.25s;
   @keyframes fadeDown {
     0% {
