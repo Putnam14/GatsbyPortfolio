@@ -6,6 +6,7 @@ const HeroStyles = styled.div`
   svg {
     color: ${props => props.theme.lightGray};
     opacity: 0.8;
+    max-height: 50px;
     font-size: 3em;
   }
   .heroContainer {
