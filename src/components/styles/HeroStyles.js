@@ -3,16 +3,14 @@ import styled from 'styled-components'
 const HeroStyles = styled.div`
   width: 100vw;
   position: relative;
+  svg {
+    color: ${props => props.theme.lightGray};
+    opacity: 0.8;
+    font-size: 3em;
+  }
   .heroContainer {
     position: relative;
     background-image: linear-gradient(white 90%, ${props => props.theme.white});
-  }
-  .bottomLinks {
-    svg {
-      color: ${props => props.theme.lightGray};
-      opacity: 0.8;
-      font-size: 3em;
-    }
   }
   @media (max-width: 739px) {
     .gatsby-image-wrapper {
