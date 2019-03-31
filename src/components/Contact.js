@@ -31,17 +31,21 @@ class Contact extends React.Component {
     }
     fetch('https://mail.bridgerputnam.me/mailer/api/v1.0/mail', {
       method: 'post',
+      mode: 'cors',
       headers: new Headers({
         Authorization: 'Basic ' + btoa('bridgerputnam:test'),
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
       }),
-      body,
+      body: JSON.stringify(body),
     })
       .then(response => {
+        return response.json()
+      })
+      .then(resJson => {
         this.setState({
           waiting: false,
-          success: response.success,
-          response: response.message,
+          success: resJson.success,
+          response: resJson.message,
         })
       })
       .catch(() => {
@@ -95,13 +99,11 @@ class Contact extends React.Component {
                 onChange={this.handleChange}
               />
             </label>
-            <button type="submit" disabled={waiting}>
-              Send
-            </button>
+            {!waiting && !response && <button type="submit">Send</button>}
+            {waiting && <span>Sending email...</span>}
+            {success == false && <span>Something went wrong.</span>}
+            {response && <span>{response}</span>}
           </form>
-          {waiting && <span>Sending email...</span>}
-          {success == false && <span>Something went wrong.</span>}
-          {response && <span>{response}</span>}
         </ContactStyles>
       </div>
     )
