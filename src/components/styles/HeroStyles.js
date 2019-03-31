@@ -4,11 +4,10 @@ const HeroStyles = styled.div`
   width: 100vw;
   position: relative;
   .heroContainer {
+    position: relative;
     background-image: linear-gradient(white 90%, ${props => props.theme.white});
   }
   .bottomLinks {
-    display: flex;
-    width: 100%;
     svg {
       color: ${props => props.theme.lightGray};
       opacity: 0.8;
@@ -43,6 +42,8 @@ const HeroStyles = styled.div`
       text-align: center;
     }
     .bottomLinks {
+      display: flex;
+      width: 100%;
       margin: 1em 0;
       justify-content: space-evenly;
       .downArrow {
@@ -81,7 +82,12 @@ const HeroStyles = styled.div`
     .bottomLinks {
       position: absolute;
       bottom: 0;
+      display: grid;
+      grid-template-columns: auto auto 1fr;
+      width: 100vw;
+      pointer-events: none;
       svg {
+        pointer-events: auto;
         padding: 0 0 1rem 3rem;
       }
       .downArrow {

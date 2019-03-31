@@ -28,19 +28,19 @@ export default ({ data }) => {
             )}
           </div>
         </div>
-      </div>
-      <div className="bottomLinks">
-        <a href="https://github.com/Putnam14">
-          <FontAwesomeIcon icon={['fab', 'github']} />
-          <span className="sr-only">Github</span>
-        </a>
-        <a href="https://twitter.com/BridgerPutnam">
-          <FontAwesomeIcon icon={['fab', 'twitter']} />
-          <span className="sr-only">Twitter</span>
-        </a>
-        <Link to="/#content" className="downArrow bounce">
-          <FontAwesomeIcon className="downArrow" icon="angle-double-down" />
-        </Link>
+        <div className="bottomLinks">
+          <a href="https://github.com/Putnam14">
+            <FontAwesomeIcon icon={['fab', 'github']} />
+            <span className="sr-only">Github</span>
+          </a>
+          <a href="https://twitter.com/BridgerPutnam">
+            <FontAwesomeIcon icon={['fab', 'twitter']} />
+            <span className="sr-only">Twitter</span>
+          </a>
+          <Link to="/#content" className="downArrow bounce">
+            <FontAwesomeIcon className="downArrow" icon="angle-double-down" />
+          </Link>
+        </div>
       </div>
     </HeroStyles>
   )
