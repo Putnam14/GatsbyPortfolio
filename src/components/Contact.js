@@ -5,7 +5,14 @@ import ContactStyles from './styles/ContactStyles'
 class Contact extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { email: '', name: '', subject: '', body: '' }
+    this.state = {
+      email: '',
+      name: '',
+      subject: '',
+      message: '',
+      waiting: false,
+      response: '',
+    }
   }
   handleChange = event => {
     const target = event.target
@@ -14,17 +21,38 @@ class Contact extends React.Component {
   }
   handleSubmit = e => {
     e.preventDefault()
-    console.log(e.target)
+    this.setState({ waiting: true })
+    const { email, name, subject, message } = this.state
+    const body = {
+      email,
+      name,
+      subject,
+      body: message,
+    }
     fetch('http://mail.bridgerputnam.me', {
       method: 'post',
       headers: new Headers({
         Authorization: 'Basic ' + btoa('bridgerputnam:test'),
         'Content-Type': 'application/x-www-form-urlencoded',
       }),
-      body: this.state,
+      body,
     })
+      .then(response => {
+        this.setState({
+          waiting: false,
+          success: response.success,
+          response: response.message,
+        })
+      })
+      .catch(() => {
+        this.setState({
+          waiting: false,
+          success: false,
+        })
+      })
   }
   render() {
+    const { name, email, message, response, success, waiting } = this.state
     return (
       <div className="wrapper">
         <HalfRule>
@@ -44,7 +72,7 @@ class Contact extends React.Component {
                 type="text"
                 name="name"
                 placeholder="Your name..."
-                value={this.state.name}
+                value={name}
                 onChange={this.handleChange}
               />
             </label>
@@ -54,21 +82,26 @@ class Contact extends React.Component {
                 type="email"
                 name="email"
                 placeholder="Your email..."
-                value={this.state.email}
+                value={email}
                 onChange={this.handleChange}
               />
             </label>
             <label>
               Message{' '}
               <textarea
-                name="body"
+                name="message"
                 placeholder="Hi Bridger, I saw your portfolio and..."
-                value={this.state.body}
+                value={message}
                 onChange={this.handleChange}
               />
             </label>
-            <button type="submit">Send</button>
+            <button type="submit" disabled={waiting}>
+              Send
+            </button>
           </form>
+          {waiting && <span>Sending email...</span>}
+          {success == false && <span>Something went wrong.</span>}
+          {response && <span>{response}</span>}
         </ContactStyles>
       </div>
     )
