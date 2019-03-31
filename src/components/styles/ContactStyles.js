@@ -20,7 +20,8 @@ const ContactStyles = styled.div`
     }
   }
   @media (min-width: 740px) {
-    textarea {
+    textarea,
+    input {
       width: 350px;
     }
   }
@@ -35,6 +36,9 @@ const ContactStyles = styled.div`
     border-radius: 4px;
     border: 2px solid ${props => props.theme.gray};
     background-color: ${props => props.theme.cardBg};
+    :required {
+      box-shadow: none;
+    }
   }
   button {
     justify-self: center;
@@ -47,6 +51,9 @@ const ContactStyles = styled.div`
     box-shadow: ${props => props.theme.bs};
     height: 3rem;
     width: 50%;
+  }
+  .required {
+    color: maroon;
   }
 `
 
