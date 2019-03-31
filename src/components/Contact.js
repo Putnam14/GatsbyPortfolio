@@ -91,12 +91,23 @@ class Contact extends React.Component {
               />
             </label>
             <label>
+              Subject{' '}
+              <input
+                type="text"
+                name="subject"
+                placeholder="Subject..."
+                value={subject}
+                onChange={this.handleChange}
+              />
+            </label>
+            <label>
               Message{' '}
               <textarea
                 name="message"
                 placeholder="Hi Bridger, I saw your portfolio and..."
                 value={message}
                 onChange={this.handleChange}
+                required
               />
             </label>
             {!waiting && !response && <button type="submit">Send</button>}
