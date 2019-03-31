@@ -29,7 +29,7 @@ class Contact extends React.Component {
       subject,
       body: message,
     }
-    fetch('http://mail.bridgerputnam.me', {
+    fetch('http://mail.bridgerputnam.me/mailer/api/v1.0/mail', {
       method: 'post',
       headers: new Headers({
         Authorization: 'Basic ' + btoa('bridgerputnam:test'),
