@@ -6,6 +6,7 @@ import Layout from '../components/layout'
 import Projects from '../components/Projects'
 import Articles from '../components/Articles'
 import AboutMe from '../components/AboutMe'
+import Contact from '../components/Contact'
 
 class RootIndex extends React.Component {
   render() {
@@ -22,6 +23,7 @@ class RootIndex extends React.Component {
           <AboutMe text={aboutMeText} />
           <Projects projects={projects} />
           <Articles posts={posts}>Recent blog posts</Articles>
+          <Contact />
         </div>
       </Layout>
     )
