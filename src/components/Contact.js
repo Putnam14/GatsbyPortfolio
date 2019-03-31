@@ -56,7 +56,15 @@ class Contact extends React.Component {
       })
   }
   render() {
-    const { name, email, message, response, success, waiting } = this.state
+    const {
+      name,
+      email,
+      message,
+      subject,
+      response,
+      success,
+      waiting,
+    } = this.state
     return (
       <div className="wrapper">
         <HalfRule>
