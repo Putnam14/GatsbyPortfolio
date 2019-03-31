@@ -71,12 +71,6 @@ class Contact extends React.Component {
           <span>Contact Me</span>
         </HalfRule>
         <ContactStyles>
-          <p>
-            Don't be afraid to contact me on{' '}
-            <a href="https://twitter.com/BridgerPutnam">Twitter</a> or{' '}
-            <a href="mailto:hey+portfolio@bridgerputnam.me">email</a>.
-          </p>
-          <p>Alternatively, you can use the form below.</p>
           <form name="contact" onSubmit={this.handleSubmit}>
             <label>
               Name{' '}
@@ -109,7 +103,7 @@ class Contact extends React.Component {
               />
             </label>
             <label>
-              Message{' '}
+              Message <span className="required">*</span>{' '}
               <textarea
                 name="message"
                 placeholder="Hi Bridger, I saw your portfolio and..."
